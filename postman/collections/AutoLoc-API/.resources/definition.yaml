@@ -1,0 +1,9 @@
+$kind: collection
+name: AutoLoc-API
+description: |-
+  Collection de test pour les endpoints de l'application AutoLoc.
+  Contient toutes les requêtes HTTP pour tester les fonctionnalités de l'API Spring Boot.
+variables:
+  - key: base_url
+    value: 'http://localhost:8080'
+    description: URL de base du serveur Spring Boot en local
