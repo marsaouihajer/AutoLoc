@@ -1,5 +1,7 @@
 package esprit.tn.hajermarsaoui4cce11.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,6 +17,7 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Equipement {
 
     @Id
@@ -26,5 +29,6 @@ public class Equipement {
 
     // Côté inverse de la relation N-N : aucune colonne créée
     @ManyToMany(mappedBy = "equipements", fetch = FetchType.LAZY)
+    @JsonIgnore
     private Set<Vehicule> vehicules = new HashSet<>();
 }

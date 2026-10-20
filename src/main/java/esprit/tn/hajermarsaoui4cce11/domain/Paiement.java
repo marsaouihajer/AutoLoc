@@ -1,5 +1,7 @@
 package esprit.tn.hajermarsaoui4cce11.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,6 +17,7 @@ import java.time.LocalDate;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Paiement {
 
     @Id
@@ -33,5 +36,6 @@ public class Paiement {
 
     // Côté propriétaire : colonne générée par Hibernate (contrat_id_contrat)
     @ManyToOne(fetch = FetchType.LAZY)
+    @JsonBackReference("contrat-paiements")
     private Contrat contrat;
 }
